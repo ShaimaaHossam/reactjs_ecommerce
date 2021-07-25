@@ -1,0 +1,40 @@
+.Navbar{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 15px;
+}
+.flex{
+    display:flex;
+}
+ul{
+    list-style-type: none;
+    margin:0;
+}
+.mt2{
+    margin-top:23px;
+    margin-left: 3px;
+}
+.mt{
+    margin-top: 13px;
+}
+.right{
+    margin-right: 50px;
+}
+.link{
+    margin-right: 24px;
+    height: 100%;
+    padding: 5px 0 15px 0;
+}
+.link:hover, .link:active{
+    color: rgb(73, 216, 73);
+    cursor: pointer;
+    font-weight: 500;
+    border-bottom: 2px solid rgb(73, 216, 73);
+}
+.space{
+    margin-right: 25px;
+}
+.navlink:hover{
+    cursor:pointer;
+}
