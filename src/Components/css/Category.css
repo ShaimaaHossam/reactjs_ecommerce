@@ -13,10 +13,10 @@
     margin-bottom: 50px;
 }
 .rounded-button{
-    background-color: rgb(73, 216, 73);
+    background-color: rgb(70, 190, 70);
     display: none;
     border-radius: 100%;
-    padding: 5px;
+    padding: 9px;
     position:absolute;
     top: 75%;
     right: 10%;
