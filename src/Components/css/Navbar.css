@@ -11,13 +11,14 @@
 .flex{
     display:flex;
 }
+.shopping{
+    margin-top: 15px;
+}
 .mt2{
     margin-top:23px;
     margin-left: 3px;
 }
-.mt{
-    margin-top: 100px;
-}
+
 .right{
     margin-right: 230px;
 }
