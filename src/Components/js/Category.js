@@ -21,7 +21,7 @@ class Category extends React.Component{
                     title: 'Apollo Running Shorts',
                     count: 0,
                     price: 100,
-                    link: 'https://images.unsplash.com/photo-1591195853828-11db59a44f6b?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c2hvcnRzfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60'
+                    link: 'https://images.unsplash.com/photo-1536992266094-82847e1fd431?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=799&q=80'
                 },
                 {
                     title: 'Apollo Running Shorts',
