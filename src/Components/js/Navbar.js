@@ -1,31 +1,25 @@
 import React from 'react';
 import '../css/Navbar.css';
-import logo from '../images/bag.png';
 class Navbar extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {toggleCurrency: false, currency: 0};
+        this.state = {toggleCurrency: false};
     
         this.viewCurrency = this.viewCurrency.bind(this);  
-        this.updateCurrency = this.updateCurrency.bind(this);
     }
     viewCurrency() {    
         this.setState(prevState => ({      
             toggleCurrency: !prevState.toggleCurrency    
         }));  
     }
-    updateCurrency(value){
-        this.setState({currency:value});
-        this.props.updateCurrency(this.state.currency);
-    }
     render(){
         return(
             <div className="Navbar">
                 <div className="outer">
                     <div className="flex nav-left">
-                        <a className="link">WOMEN</a>
-                        <a className="link">MEN</a>
-                        <a className="link">KIDS</a>
+                        <a  className="link">WOMEN</a>
+                        <a  className="link">MEN</a>
+                        <a  className="link">KIDS</a>
                     </div>
                     <div>
                         <img className="navlink" width="40px" height="40px" src="https://headless-security.org/gfx/logo.png"/>
@@ -46,9 +40,11 @@ class Navbar extends React.Component {
                 <div className="dropdown">
                     {this.state.toggleCurrency? 
                     <div className="flex-col currency">
-                        <a onClick={()=>this.updateCurrency(0)} className="curren">$ USD</a>
-                        <a onClick={()=>this.updateCurrency(1)} className="curren">€ EUR</a>
-                        <a onClick={()=>this.updateCurrency(2)} className="curren">¥ JPY</a>
+                        <a className="curren">$ USD</a>
+                        <a className="curren">¥ JPY</a>
+                        <a className="curren">£ GBP</a>
+                        <a className="curren">$ AUD</a>
+                        <a className="curren">₽ RUB</a>
                     </div> : ''
                     }
                     
