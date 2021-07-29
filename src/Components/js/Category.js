@@ -30,12 +30,11 @@ const getProducts = gql`
     }
   }
 `;
-class Category extends React.Component {
-  categories = [];
+ class Category extends React.Component {
+  
   render() {
-    
-    var data = this.props.data;
-    
+    console.log(this.props.data);
+    var data = this.props.data;    
     if(data.loading){
       return (<p>Loading ...</p>);
     }  
@@ -62,7 +61,12 @@ class Category extends React.Component {
                     <path d="m362 405c0 24.8125 20.1875 45 45 45s45-20.1875 45-45-20.1875-45-45-45-45 20.1875-45 45zm45-15c8.269531 0 15 6.730469 15 15s-6.730469 15-15 15-15-6.730469-15-15 6.730469-15 15-15zm0 0" />
                   </svg>
                   <p className="details">{product.name}</p>
-                  <p className="details">${product.prices[0].amount}</p>
+                  <p className="details">{
+                                            this.props.currency==0 ? '$'+product.prices[0].amount :
+                                            this.props.currency==1 ? '£'+product.prices[1].amount :
+                                            this.props.currency==2 ? 'AUD'+product.prices[2].amount :
+                                            this.props.currency==3 ? '¥'+product.prices[3].amount :
+                                            this.props.currency==4 ? '₽'+product.prices[4].amount : ''}</p>
                 </article>
               ))}
             </section>
@@ -72,9 +76,5 @@ class Category extends React.Component {
     }
   }
 }
-function mapStateToProps(state){
-  return{
-    currency: state.currency,
-  }
-}
 export default graphql(getProducts)(Category);
+ 

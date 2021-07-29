@@ -26,7 +26,7 @@ class Navbar extends React.Component {
                     </div>
                     <div className="flex right">
                         <div onClick={this.viewCurrency}  className="flex navlink space">
-                            <p>$</p>
+                            <p>{this.props.currency==0 ? '$' : this.props.currency==1 ? '£' : this.props.currency==2 ? 'AUD' : this.props.currency==3 ? '¥' : this.props.currency == 4 ? '₽' : ''}</p>
                             {this.state.toggleCurrency? 
                             <svg xmlns="http://www.w3.org/2000/svg" className="mt2" height="10" width="10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
@@ -40,11 +40,11 @@ class Navbar extends React.Component {
                 <div className="dropdown">
                     {this.state.toggleCurrency? 
                     <div className="flex-col currency">
-                        <a className="curren">$ USD</a>
-                        <a className="curren">¥ JPY</a>
-                        <a className="curren">£ GBP</a>
-                        <a className="curren">$ AUD</a>
-                        <a className="curren">₽ RUB</a>
+                        <a onClick={()=>this.props.updateCurrency(0)} className="curren">$ USD</a>
+                        <a onClick={()=>this.props.updateCurrency(1)} className="curren">£ GBP</a>
+                        <a onClick={()=>this.props.updateCurrency(2)} className="curren">$ AUD</a>
+                        <a onClick={()=>this.props.updateCurrency(3)} className="curren">¥ JPY</a>
+                        <a onClick={()=>this.props.updateCurrency(4)} className="curren">₽ RUB</a>
                     </div> : ''
                     }
                     
