@@ -12,6 +12,7 @@
     position: absolute;
     box-shadow: 1px 1px 15px rgb(226, 226, 226);
     right: 17%;
+    z-index: 1;
 }
 .curren{
     margin: 15px;
@@ -44,6 +45,8 @@
     margin-right: 24px;
     height: 100%;
     padding: 5px 0 0px 0;
+    color: black;
+    text-decoration: none;
 }
 .link:hover, .link:active{
     color: rgb(73, 216, 73);

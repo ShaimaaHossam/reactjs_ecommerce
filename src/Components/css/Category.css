@@ -39,11 +39,20 @@
    flex-wrap: wrap;
    justify-content: center;
 }
-.card{
+.card, .cardOutOfStock{
     padding: 10px;
     margin-bottom: 25px;
     margin-right: 80px;
     position: relative;
+}
+.cardOutOfStock{
+    opacity: 0.5;
+}
+.out{
+    position:absolute;
+    top: 40%;
+    left: 25%;
+    font-size: 18px;
 }
 .details{
     margin-top:15px;

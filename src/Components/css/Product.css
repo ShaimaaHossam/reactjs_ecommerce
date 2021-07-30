@@ -1,0 +1,95 @@
+*{
+    font-family:   'Raleway', sans-serif; 
+
+}
+.prodContainer{
+    display:flex;
+    margin-top: 100px;
+    margin-left: 250px;
+    flex-direction: row;
+}
+.productDetails{
+    margin-top: 20px;
+    margin-left: 20px;
+}
+.imageDisplay{
+    display:flex;
+    margin-right: 50px;
+}
+.verticalDisplay{
+    display:flex;
+    flex-direction:column;
+    margin-right:60px;
+}
+.little:hover{
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+}
+
+.name{
+    font-weight: bold;
+    font-size: 24px;
+}
+.subname{
+    font-size:18px;
+}
+.attr{
+    margin-top:30px;
+    font-size: 13px;
+    font-weight:bold;
+    text-transform: uppercase;
+}
+
+.item{
+    margin-top:4px;
+    margin-right: 12px;
+    border: solid 1px black;
+    padding:3px;
+
+}
+.item:hover{
+    cursor:pointer;
+}
+.price{
+    font-weight: bold;
+    margin-top: 4px;
+}
+.addbtn{
+    text-align: center;
+    background: linear-gradient(90deg, rgba(188,132,241,1) 0%, rgba(72,228,106,1) 0%, rgba(65,209,106,1) 100%); 
+    color:white;
+    margin-top: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.addbtn:hover{
+    cursor:pointer;
+}
+p{
+    font-weight: 500;
+}
+h1{
+    font-size:14px;
+}
+.swatch{
+    padding:10px;
+    margin-top: 5px;
+}
+.blue{
+    background: blue;
+}
+.black{
+    background: black;
+}
+.white{
+    background: white;
+}
+.cyan{
+    background: cyan;
+}
+.green{
+    background: green;
+}
