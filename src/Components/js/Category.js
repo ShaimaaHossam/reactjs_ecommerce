@@ -71,7 +71,28 @@ const getProducts = gql`
                                             this.props.currency===2 ? 'AUD'+product.prices[2].amount :
                                             this.props.currency===3 ? '¥'+product.prices[3].amount :
                                             this.props.currency===4 ? '₽'+product.prices[4].amount : ''}</p>
-                </article> : 
+                {product.attributes.map((attr,index)=>(
+                  <div className="flex plp">
+                  {attr.items.map((item,index)=>(
+                    item.displayValue==="Blue" ? 
+                    <div className="item swatch blue"></div> :
+                    item.displayValue==="Green" ? 
+                    <div className="item swatch green"></div> :
+                    item.displayValue==="White" ? 
+                    <div className="item swatch white"></div> :
+                    item.displayValue==="Cyan" ? 
+                    <div className="item swatch cyan"></div> :
+                    item.displayValue==="Black" ? 
+                    <div className="item swatch black"></div> :
+                    ''
+                  ))}
+                </div>
+                ))}
+                
+                </article> 
+                
+                
+                : 
 
                 <article key={product.id} className="cardOutOfStock">
                 <img width="250" height="250" src={product.gallery[0]} alt="img" />
@@ -83,6 +104,23 @@ const getProducts = gql`
                                           this.props.currency===2 ? 'AUD'+product.prices[2].amount :
                                           this.props.currency===3 ? '¥'+product.prices[3].amount :
                                           this.props.currency===4 ? '₽'+product.prices[4].amount : ''}</p>
+                {product.attributes.map((attr,index)=>(
+                  <div className="flex plp">
+                  {attr.items.map((item,index)=>(
+                    item.displayValue==="Blue" ? 
+                    <div className="item swatch blue"></div> :
+                    item.displayValue==="Green" ? 
+                    <div className="item swatch green"></div> :
+                    item.displayValue==="White" ? 
+                    <div className="item swatch white"></div> :
+                    item.displayValue==="Cyan" ? 
+                    <div className="item swatch cyan"></div> :
+                    item.displayValue==="Black" ? 
+                    <div className="item swatch black"></div> :
+                    ''
+                  ))}
+                </div>
+                ))}
                 </article>
 
 

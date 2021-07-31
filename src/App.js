@@ -14,24 +14,31 @@ const client = new ApolloClient({
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { currency: 0 };
+    this.state = { 
+      currency: 0,
+      cart: [
+        {
+          
+        }
+      ]
+    };
   }
   updateCurrency = (value) => {
     this.setState({ currency: value});
-  };
+  };s
   render(){
     
     return (
       <Router>
         <ApolloProvider client={client}>
           <div className="App">
-            <Navbar currency={this.state.currency} updateCurrency={this.updateCurrency}/>
+            <Navbar currency={this.state.currency} updateCurrency={this.updateCurrency} cart={this.state.cart}/>
             <Switch>
                 <Route exact path="/" render={(props)=>(
-                  <Category {...props} currency={this.state.currency} />
+                  <Category {...props} currency={this.state.currency}  cart={this.state.cart} />
                 )} />            
                 <Route exact path="/:id" render={(props)=>(
-                  <Product {...props} currency = {this.state.currency}/>
+                  <Product {...props} currency = {this.state.currency}  cart={this.state.cart}/>
                 )} /> 
             </Switch>
           </div>

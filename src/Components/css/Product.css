@@ -44,9 +44,17 @@
 .item{
     margin-top:4px;
     margin-right: 12px;
+    padding:5px;
     border: solid 1px black;
-    padding:3px;
-
+    
+}
+.itemSelected{
+    color: white;
+    background:black;
+    
+}
+.itemNotSelected{
+    color: black
 }
 .item:hover{
     cursor:pointer;
@@ -75,8 +83,23 @@ h1{
     font-size:14px;
 }
 .swatch{
-    padding:10px;
+    padding:6px;
     margin-top: 5px;
+    margin-right: 5px;
+    border: 1px solid black;
+    border-radius: 50px;
+}
+.alert{
+    color: red;
+}
+.alertgreen{
+    color: green;
+}
+.none{
+    display:none;
+}
+.swatch:hover, .swatchSelected{
+    padding: 8px;
 }
 .blue{
     background: blue;
@@ -92,4 +115,7 @@ h1{
 }
 .green{
     background: green;
+}
+.check{
+    display:none;
 }
