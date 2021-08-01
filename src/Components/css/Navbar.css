@@ -1,6 +1,6 @@
 .Navbar{
     width: 100%;
-    margin-top: 15px;
+    padding-top:15px;
     position:relative;
     font-family:'Raleway', sans-serif;
 }
@@ -59,4 +59,56 @@
 }
 .navlink:hover{
     cursor:pointer;
+}
+.cartIcon{
+    position: relative;
+}
+.quantity{
+    position: absolute;
+    background-color: black;
+    color:white;
+    font-weight: bold;
+    border: solid black 1px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 13px;
+    border-radius: 60px;
+    top: 10%;
+    right: -50%;
+}
+.cartOverlay{
+    position:absolute;
+    right: 10%;
+    padding:10px;
+    background-color: white;
+}
+.none{
+    display: none;
+}
+.overlayHead{
+    font-size: 13px;
+}
+.totalPrice{
+    justify-content: space-between;
+    margin-top:20px;
+    margin-bottom: 10px;
+}
+.bagBtn{
+    border: 1px solid black;
+    padding: 6px 12px 6px 12px;
+    margin-right: 5px;
+}
+.checkOutBtn{
+    background-color: rgb(83, 209, 83);
+    color: white;
+    padding: 6px 12px 6px 12px;
+}
+.bagBtn:hover, .checkOutBtn:hover{
+    cursor: pointer;
+}
+.bgwhite{
+    background-color: white;
+}
+.bggray{
+    background-color:  #e5e1e1 ;
 }

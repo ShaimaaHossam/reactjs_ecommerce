@@ -3,6 +3,8 @@ import "../css/Product.css";
 import { gql } from "apollo-boost";
 import {graphql} from 'react-apollo';
 import ReactHtmlParser from 'react-html-parser';
+import {connect} from 'react-redux';
+import {addToCart} from '../../redux/Shopping/cart-actions';
 const getProducts = gql`
   query GetProducts {
     category {
@@ -70,7 +72,7 @@ class Product extends React.Component{
       }
       
     }
-    addToCart = (product) => {
+    checkRequest = (product) => {
       let attribute = product.attributes;
       let flag=0;
       let sflag=0;
@@ -83,7 +85,8 @@ class Product extends React.Component{
             swatchExists = true;
             if(document.getElementById(items[j].id+attribute[i].name).classList.contains("swatchSelected") ){
               sflag=1;
-              selected.push({name: attribute[i].name, value: items[j].displayValue});
+              selected.push({productID: product.id, attributename: attribute[i].name, value: items[j].displayValue});
+              
             }
               
           }
@@ -91,25 +94,34 @@ class Product extends React.Component{
             if(document.getElementById(items[j].id+attribute[i].name).classList.contains("itemSelected") )
              {
               flag=1;
-              selected.push({name: attribute[i].name, value: items[j].displayValue});
+              selected.push({productID: product.id ,attributename: attribute[i].name, value: items[j].displayValue});
+              
              } 
           }
         }
         
-        if(flag===1 && (swatchExists && sflag===1)){
+        if((flag===1 && (swatchExists && sflag===1)) || (flag===1 && !swatchExists)){
+          document.getElementById("alert").classList.remove("none");
           document.getElementById("alert").innerHTML = "Item added successfully!";
           document.getElementById("alert").classList.remove("alert");
           document.getElementById("alert").classList.add("alertgreen");
-          console.log(selected);
+          this.handleAddItem(selected);
           
         }
         else{
           document.getElementById("alert").classList.remove("none");
         }
     }
-  }
+    }
+    handleAddItem = (product) => {
+      const { dispatch } = this.props;                
+      dispatch(
+        addToCart(product)
+      )
+    }
     
     render(){
+      console.log(this.props);
         const id = this.props.match.params.id;
         const data = this.props.data;
         console.log(data);
@@ -187,7 +199,7 @@ class Product extends React.Component{
                                           this.props.currency===3 ? '¥'+product.prices[3].amount :
                                           this.props.currency===4 ? '₽'+product.prices[4].amount : ''}</div>
                             
-                            <div onClick={()=>this.addToCart(product)} className="addbtn">
+                            <div onClick={()=>this.checkRequest(product)} className="addbtn">
                                 <a>ADD TO CART</a>
                             </div>
                             <div id="alert" className="alert none">Please select your preferences.</div>
@@ -209,5 +221,6 @@ class Product extends React.Component{
         
     }
 }
+export default connect(
 
-export default graphql(getProducts)(Product);
+)(graphql(getProducts)(Product));

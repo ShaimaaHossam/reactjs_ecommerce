@@ -16,29 +16,36 @@ class App extends React.Component {
     super(props);
     this.state = { 
       currency: 0,
-      cart: [
-        {
-          
-        }
-      ]
+      bg: "white",
     };
+  }
+  changeBackground = (background) =>{
+    this.setState({bg: background});
   }
   updateCurrency = (value) => {
     this.setState({ currency: value});
-  };s
+  };
+  addProduct = (product) => {
+    let joined = [];
+    //joined.push(this.state.cart);
+    joined.push(product);
+    this.setState({cart: joined});
+    console.log("CART RECEIVED");
+    console.log(this.state.cart);
+  }
   render(){
     
     return (
       <Router>
         <ApolloProvider client={client}>
           <div className="App">
-            <Navbar currency={this.state.currency} updateCurrency={this.updateCurrency} cart={this.state.cart}/>
+            <Navbar currency={this.state.currency} updateCurrency={this.updateCurrency} cart={this.state.cart} switchBackground={this.changeBackground}/>
             <Switch>
                 <Route exact path="/" render={(props)=>(
-                  <Category {...props} currency={this.state.currency}  cart={this.state.cart} />
+                  <Category {...props} currency={this.state.currency} background={this.state.bg}  cart={this.state.cart} />
                 )} />            
                 <Route exact path="/:id" render={(props)=>(
-                  <Product {...props} currency = {this.state.currency}  cart={this.state.cart}/>
+                  <Product {...props} currency = {this.state.currency}  cart={this.state.cart} addProduct={this.addProduct}/>
                 )} /> 
             </Switch>
           </div>

@@ -2,6 +2,8 @@ import React from "react";
 import "../css/Category.css";
 import { gql } from "apollo-boost";
 import {graphql} from 'react-apollo';
+import {connect} from 'react-redux';
+import {addToCart} from '../../redux/Shopping/cart-actions';
 const getProducts = gql`
   query GetProducts {
     category {
@@ -32,8 +34,17 @@ const getProducts = gql`
   }
 `;
  class Category extends React.Component {
+   
+   
   redirectToProduct(product){
     window.location.href="/"+product;
+  }
+  handleAddItem = (product) => {
+    console.log(product);
+    const { dispatch } = this.props;                
+    dispatch(
+      addToCart({productID: product.id, attributename: null, value: null})
+    )
   }
   render() {
     console.log(this.props);
@@ -44,7 +55,7 @@ const getProducts = gql`
     else{ 
       return (
       
-      <div className="container">
+      <div className={this.props.background + " container"}>
         <p className="title">All categories</p>
             <section className="cards-container">
               
@@ -52,7 +63,7 @@ const getProducts = gql`
                 product.inStock ? 
                 <article key={product.id} className="card">
                   <img onClick={()=>this.redirectToProduct(product.id)} width="250" height="250" src={product.gallery[0]} alt="img" />
-                  <svg
+                  <svg onClick={()=>this.handleAddItem(product)}
                     className="rounded-button navlink"
                     fill="#ffffff"
                     height="20px"
@@ -132,5 +143,7 @@ const getProducts = gql`
     }
   }
 }
-export default graphql(getProducts)(Category);
- 
+export default connect(
+
+  )(graphql(getProducts)(Category));
+  
